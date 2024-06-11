@@ -8,22 +8,22 @@ if(isset($_POST['submit'])){
 
     $str = "UPDATE users SET username='$uname', 
     password='$upass' WHERE userid=".$id;
-    mysqli_query($con,$str) or die(mysqli_error($con));
+    mysqli_query($conn,$str) or die(mysqli_error($conn));
 }
 //Delete
 if(isset($_GET['p']) && isset($_GET['cmd']) && $_GET['cmd']=='delete'){
   $sql = "DELETE FROM users WHERE userid = ".$_GET['id'];
-  if (mysqli_query($con, $sql)) {
+  if (mysqli_query($conn, $sql)) {
       echo "Record deleted successfully!";
   } else {
-      echo "Error deleting record: " . mysqli_error($con);
+      echo "Error deleting record: " . mysqli_error($conn);
   }
 }
 
   if(isset($_GET['p']) && isset($_GET['cmd']) && $_GET['cmd']=='edit'){
       $id = $_GET['id'];
       $sql = "select * from users where userid=".$id;
-      $query = mysqli_query($con,$sql) or mysqli_error($con);
+      $query = mysqli_query($conn,$sql) or mysqli_error($conn);
       while($row =  mysqli_fetch_assoc($query)){
           $uid = $row['userid'];
           $uname = $row['username'];
