@@ -17,6 +17,7 @@ $pname = '';
 $qty = 0;
 $price = 0.0;
 $pid = 0;
+$image = '';    
 
 // Insert Data
 if (isset($_POST['btnInsert'])) {
